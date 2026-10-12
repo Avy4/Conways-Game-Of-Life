@@ -1,0 +1,57 @@
+:root {
+    background-color: rgb(77, 174, 126);
+    color: rgb(244, 251, 253);
+    font-size: 16px;
+    -unity-font-style: bold;
+    border-left-color: rgb(255, 219, 111);
+    border-right-color: rgb(255, 219, 111);
+    border-top-color: rgb(255, 219, 111);
+    border-bottom-color: rgb(255, 219, 111);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    flex-shrink: 0;
+    max-width: 350px;
+    max-height: 400px;
+}
+
+Button {
+    border-left-color: rgb(255, 219, 111);
+    border-right-color: rgb(255, 219, 111);
+    border-top-color: rgb(255, 219, 111);
+    border-bottom-color: rgb(255, 219, 111);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: rgb(89, 72, 112);
+}
+
+#unity-text-input {
+    background-color: rgb(49, 123, 114);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-left-color: rgb(255, 219, 111);
+    border-right-color: rgb(255, 219, 111);
+    border-top-color: rgb(255, 219, 111);
+    border-bottom-color: rgb(255, 219, 111);
+}
+
+#N > #unity-text-input {
+    background-color: rgb(64, 105, 132);
+}

@@ -1,0 +1,17 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/style.uss?fileID=7433441132597879392&amp;guid=b5ae94fb7f38f0c4d8c84d9cf38b0736&amp;type=3#style"/>
+    <ui:GroupBox name="ROOT" style="width: auto; aspect-ratio: auto; max-width: none; max-height: none; align-items: stretch; justify-content: space-between; align-self: stretch; height: auto;">
+        <ui:GroupBox name="Initialization" style="padding-bottom: 0;">
+            <ui:Label text="Inititialization" name="Initialization-Label" style="margin-top: -8px;"/>
+            <ui:IntegerField label="M (Rows 1-200)" value="10" select-all-on-mouse-up="true" name="M" style="-unity-background-image-tint-color: rgb(255, 255, 255);"/>
+            <ui:IntegerField label="N (Cols 1-280)" value="10" name="N"/>
+            <ui:FloatField label="% Alive (0-100)" value="35" name="pctAlive"/>
+            <ui:Button text="Initialize!" name="Initialize-Button" style="margin-top: 4px; -unity-text-auto-size: none; -unity-text-generator: standard;"/>
+        </ui:GroupBox>
+        <ui:GroupBox name="Simulate" style="margin-top: 0;">
+            <ui:Label text="Simulate" name="Simulate-Label"/>
+            <ui:Button text="Step" name="Step-Button"/>
+            <ui:Button text="Reset&#10;" name="Reset-Button"/>
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>
