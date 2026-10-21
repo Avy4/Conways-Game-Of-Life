@@ -32,6 +32,7 @@ public class UserInterface : MonoBehaviour
         initializeButton.clicked += Initialize;
     }
 
+    // Initializing allows you to step and reset
     void Initialize()
     {
         int mData = Mathf.Clamp(M.value, 1, 200);
@@ -47,6 +48,7 @@ public class UserInterface : MonoBehaviour
         resetButton.clicked += this.Reset;
     }
 
+    // Can't step or reset if the board is clear
     void Reset()
     {
         initializeButton.clicked += Initialize;

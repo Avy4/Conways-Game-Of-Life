@@ -15,19 +15,25 @@ public class SimulationManager : MonoBehaviour
     // Corresponds to N (columns)
     const float height = 10.0f;
 
+    // Resets the grid
     public void Reset()
-    {
+    {   
+        // Destroys all the cells
         foreach(CellInformation ci in cells)
         {
             Destroy(ci.gameObject);
         }
         
+        // Resets the matrix and dict
         cells = null;
         cellReference = null;
+
+        // Resets the grid position and scale
         grid.transform.position = new Vector3(1, 0, 0);
         grid.transform.localScale = Vector3.one;
     }
 
+    // Creates all the individual cells based on rows, columns, and the odds of a cell being alive
     public void Initialize(int M, int N, float pctAlive)
     {
         cells = new CellInformation[N,M];
@@ -41,7 +47,9 @@ public class SimulationManager : MonoBehaviour
             // Rows is Y
             for (int j = 0; j < M; j++)
             {
+                // Sets the state (dead or alive based on the alive odds)
                 int cellValue = (UnityEngine.Random.Range(0.0f, 1.0f) * 100 <= pctAlive) ? 1 : 0;
+                // Instantiates it under the grid, with its coordinates relative to the grid transformed to world coordinates
                 cells[i, j] = Instantiate(cellPrefab, grid.CellToWorld  (new Vector3Int(i, j, 0)), Quaternion.identity, grid.transform).GetComponent<CellInformation>();
                 cells[i, j].SetState(cellValue);
                 cellReference[(i, j)] = cells[i, j];
@@ -49,8 +57,10 @@ public class SimulationManager : MonoBehaviour
         }
     }
 
+    // Sets the correct scale so all the cells fit
     private void SetGrid(int M, int N)
-    {
+    {   
+        // Takes the smaller of the two scales to make all cells always fit
         float scale = Mathf.Clamp(( height / M < length / N) ? height / M : length / N, 0, 1);
 
         float gridXTranslate = -(N * scale) / 2;
@@ -60,6 +70,7 @@ public class SimulationManager : MonoBehaviour
         grid.transform.position += new Vector3(gridXTranslate, gridYTranlate, 0);
     }
 
+    // Basic Conway's Game of Life algorithm
     public void Step()
     {
         for (int i = 0; i < cells.GetLength(0); i++)
