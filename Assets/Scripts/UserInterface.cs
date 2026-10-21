@@ -15,6 +15,11 @@ public class UserInterface : MonoBehaviour
     private FloatField pctAlive;
     void Start()
     {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        // Allows the browser to properly pass text inputs into the fields
+        WebGLInput.captureAllKeyboardInput = false;
+        #endif
+        
         VisualElement root = uiDocument.rootVisualElement;
 
         initializeButton = root.Query<Button>("Initialize-Button");
@@ -25,8 +30,6 @@ public class UserInterface : MonoBehaviour
         pctAlive = root.Query<FloatField>("pctAlive");
 
         initializeButton.clicked += Initialize;
-        resetButton.clicked += simManager.Reset;
-        resetButton.clicked += this.Reset;
     }
 
     void Initialize()
@@ -39,11 +42,16 @@ public class UserInterface : MonoBehaviour
 
         initializeButton.clicked -= Initialize;
         stepButton.clicked += simManager.Step;
+
+        resetButton.clicked += simManager.Reset;
+        resetButton.clicked += this.Reset;
     }
 
     void Reset()
     {
         initializeButton.clicked += Initialize;
         stepButton.clicked -= simManager.Step;
+        resetButton.clicked -= simManager.Reset;
+        resetButton.clicked -= this.Reset;
     }
 }

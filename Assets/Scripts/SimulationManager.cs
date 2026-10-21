@@ -51,7 +51,7 @@ public class SimulationManager : MonoBehaviour
 
     private void SetGrid(int M, int N)
     {
-        float scale = Mathf.Clamp((M > N) ? height / M : length / N, 0, 1);
+        float scale = Mathf.Clamp(( height / M < length / N) ? height / M : length / N, 0, 1);
 
         float gridXTranslate = -(N * scale) / 2;
         float gridYTranlate = -(M * scale) / 2;
